@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <img src="C:\Users\Dell\Downloads\Template\shop in style e-commerce\assets\download (16).jfif" id="logo" width="130px" heigth="150px">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!" id="home">Home</a></li>
+                    <li class="nav-item" id="order"><a class="nav-link"></a>Customize</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown">Dessert</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="container text-center">
+                                <div class="row">
+                                  <div class="col">
+                                    <img class="card-img-top" src="C:\Users\Dell\Downloads\Template\shop in style e-commerce\assets\download (11).jfif" alt="..."  id="ringimg" >
+                                    <h5 class="fw-bolder"id="cake">Cake</h5>
+                                  </div>
+                                  <div class="col">
+                                    <img class="card-img-top" src="C:\Users\Dell\Downloads\Template\shop in style e-commerce\assets\Cake-mix-cookies-I-Heart-Naptime.jpg" alt="..." />
+                                    <h5 class="fw-bolder">Cookies</h5>
+                                  </div>
+                                </div>
+                              </div>  
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link"href="#!" id="Deal">Gifts</a></li>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Search">
+                  </div>
+                    <div class="d-flex">
+                        <button type="button" id="login" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                        <button type="button" id="register"class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal" >Register</button>
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </nav>
+      <div class="container-fluid">
+        <div class="container">
+          <div class="card1">
+            <img class="card-img-top" id="productImage" alt="Product Image">
+            <div class="card-body1">
+              <h5 class="card-title" id="productName"></h5>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa temporibus iste nihil maiores praesentium reiciendis ullam maxime asperiores sunt minima! Est quod ad quaerat nostrum delectus eligendi eos nobis ea.</p>
+              <p class="card-text" id="productPrice"></p>
+              <button type="button" class="btn btn-info" id="Buy">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- JavaScript to handle retrieving and displaying product details -->
+      <script>
+        // Function to parse query parameters from URL
+        function parseQueryParameters() {
+          let params = {};
+          let queryString = window.location.search.substring(1);
+          let pairs = queryString.split('&');
+          pairs.forEach(pair => {
+            let parts = pair.split('=');
+            params[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1]);
+          });
+          return params;
+        }
+       document.getElementById("Buy").addEventListener("click", function() {
+        // Get the product details
+        let productName = document.getElementById("productName").innerText;
+        let productPrice = document.getElementById("productPrice").innerText;
+        let productImage = document.getElementById("productImage").getAttribute("src");
+
+        // Encode special characters in the product details for URL compatibility
+        productName = encodeURIComponent(productName);
+        productPrice = encodeURIComponent(productPrice);
+        productImage = encodeURIComponent(productImage);
+
+        // Construct the URL with product details as query parameters
+        let buyUrl = `Buy.html?name=${productName}&price=${productPrice}&image=${productImage}`;
+
+        // Redirect to the "Buy" page with the constructed URL
+        window.location.href = buyUrl;
+    });
+        // Retrieve and parse query parameters from URL
+        let queryParams = parseQueryParameters();
+        
+        // Display product details in the card
+        document.getElementById('productImage').src = decodeURIComponent(queryParams.image);
+        document.getElementById('productName').innerText = queryParams.name;
+        document.getElementById('productPrice').innerText = queryParams.price;
+
+        function redirectToDetailsPage(event) {
+      // Find the product details from the clicked card
+      let card = event.target.closest('.card');
+      let productName = card.querySelector('.fw-bolder').innerText;
+      let productPrice = card.querySelector('.price').innerText;
+      let productImage = card.querySelector('.card-img-top').getAttribute('src');
+
+      // Encode special characters in the product details for URL compatibility
+      productName = encodeURIComponent(productName);
+      productPrice = encodeURIComponent(productPrice);
+      productImage = encodeURIComponent(productImage);
+      
+      // Construct the URL with product details as query parameters
+      let detailsUrl = `Buy.html?name=${productName}&price=${productPrice}&image=${productImage}`;
+
+      // Redirect to details.html with the constructed URL
+      window.location.href = detailsUrl;
+    }
+
+    // Get all the "View options" buttons and add event listeners to each
+    document.querySelectorAll('.btn-info').forEach(button => {
+      button.addEventListener('click', redirectToDetailsPage);
+    });
+            function view()
+            {
+                let Productimage=document.getElementById("ringimg");
+                let Productname=document.getElementById("ring");
+                let Productprice=document.getElementById("price");
+
+                console.log(Productimage)
+                console.log(Productname)
+                console.log(Productprice)
+            }
+            document.getElementById("Buy").addEventListener("click", function() {
+            // Get the product details
+            let productName = document.getElementById("productName").innerText;
+            let productPrice = document.getElementById("productPrice").innerText;
+            let productImage = document.getElementById("productImage").getAttribute("src");
+
+            // Encode special characters in the product details for URL compatibility
+            productName = encodeURIComponent(productName);
+            productPrice = encodeURIComponent(productPrice);
+            productImage = encodeURIComponent(productImage);
+
+            // Construct the URL with product details as query parameters
+            let buyUrl = `Buy.html?name=${productName}&price=${productPrice}&image=${productImage}`;
+
+            // Redirect to the "Buy" page with the constructed URL
+            window.location.href = buyUrl;
+        });
+     
+
+        document.getElementById("order").addEventListener("click", function() {
+                // Navigate to another page
+                window.location.href = "customize.html";
+        });
+        document.getElementById("Deal").addEventListener("click", function() {
+                // Navigate to another page
+                window.location.href = "gift.html";
+        });
+        document.getElementById("home").addEventListener("click", function() {
+                // Navigate to another page
+                window.location.href = "index.html";
+        });
+        document.getElementById("Buy").addEventListener("click", function() {
+                // Navigate to another page
+                window.location.href = "Buy.html";
+        });
+
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

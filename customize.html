@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        
+        <!-- Core theme CSS (includes Bootstrap)-->
+      <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <img src="C:\Users\Dell\Downloads\Template\shop in style e-commerce\assets\download (16).jfif" id="logo" width="130px" heigth="150px">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!" id="home">Home</a></li>
+                <li class="nav-item" id="order"><a class="nav-link"></a>Customize</li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown">Dessert</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="container text-center">
+                            <div class="row">
+                              <div class="col">
+                                <img class="card-img-top" src="C:\Users\Dell\Downloads\Template\shop in style e-commerce\assets\download (11).jfif" alt="..."  id="ringimg" >
+                                <h5 class="fw-bolder"id="cake">Cake</h5>
+                              </div>
+                              <div class="col">
+                                <img class="card-img-top" src="C:\Users\Dell\Downloads\Template\shop in style e-commerce\assets\Cake-mix-cookies-I-Heart-Naptime.jpg" alt="..." />
+                                <h5 class="fw-bolder">Cookies</h5>
+                              </div>
+                            </div>
+                          </div>  
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link"href="#!" id="Deal">Gifts</a></li>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Search">
+              </div>
+                <div class="d-flex">
+                    <button type="button" id="login" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                    <button type="button" id="register"class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal" >Register</button>
+                </div>
+            </div>
+        </div>
+    </ul>
+</nav>
+    <h1 id="cd">Customize your Dessert</h1>
+    <form class="row g-3" id="form">
+        <div class="col-md-4">
+            <label for="inputState" class="form-label">Choose your Dessert</label>
+            <select id="inputState" class="form-select">
+              <option selected>Cake</option>
+              <option>Macron</option>
+              <option>Cupcake</option>
+              <option>Chocolate</option>
+              <option>Pastry</option>
+            </select>
+          </div>
+        <div class="col-md-6">
+            <label for="inputState" class="form-label">Choose your Flavour</label>
+            <select id="inputState" class="form-select">
+              <option selected>Vanilla</option>
+              <option>Stawberry</option>
+              <option>chocolate</option>
+              <option>Biscoff</option>
+              <option>BlueBerry</option>
+            </select>
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Special dietary restriction</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="dietary restriction">
+        </div>
+        <div class="col-md-6">
+            <label for="inputState" class="form-label">Choose your Toppings</label>
+            <select id="inputState" class="form-select">
+              <option selected>Choco chips</option>
+              <option>Marshmallow</option>
+              <option>chocolate</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="inputAddress" class="form-label">Customize it By yourself</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Customize it">
+          </div>
+        <div class="col-12">
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Customize</button>
+        </div>
+      </form>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script>
+        document.getElementById("order").addEventListener("click", function() {
+                // Navigate to another page
+                window.location.href = "customize.html";
+        });
+        document.getElementById("Deal").addEventListener("click", function() {
+                // Navigate to another page
+                window.location.href = "gift.html";
+        });
+        document.getElementById("home").addEventListener("click", function() {
+                // Navigate to another page
+                window.location.href = "index.html";
+        });
+      </script>
+</body>
+</html>
